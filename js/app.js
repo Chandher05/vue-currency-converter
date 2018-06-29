@@ -16,6 +16,9 @@ new Vue({
     },
     calculateResult() {
       return (Number(this.amount) * this.result).toFixed(3)
+    },
+    invalidData() {
+      return !this.amount || (Number(this.amount) === 0)
     }
   },
   methods: {

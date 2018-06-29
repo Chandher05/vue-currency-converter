@@ -38,13 +38,13 @@
         <div class="col-md-6 offset-md-3">
           <input type="text" class="my-5 form-control" v-model="amount" placeholder="Amount to convert ...">
           <div class="text-center">
-              <button class="btn btn-lg btn-primary">Convert</button>
+              <button @click="convertCurrency" class="btn btn-lg btn-primary">Convert</button>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6 offset-md-3">
-          <h1 class="text-center mt-5 display-2">56.223</h1>
+          <h1 class="text-center mt-5 display-2">{{ calculateResult }}</h1>
         </div>
       </div>
     </div>

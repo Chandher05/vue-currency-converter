@@ -8,9 +8,18 @@ new Vue({
   }, 
   methods: {
     getCurrencies() {
+      const currencies = localStorage.getItem('currencies')
+
+      if (currencies) {
+        this.currencies = JSON.parse(currencies)
+
+        return
+      }
       axios.get('https://free.currencyconverterapi.com/api/v5/currencies')
         .then(response => {
-          this.currencies = response.data.results
+          const { results } = response.data
+          localStorage.setItem('currencies', JSON.stringify(results))
+          this.currencies = results
         })
     }
   }

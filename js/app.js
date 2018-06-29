@@ -8,7 +8,8 @@ new Vue({
     to: 'EUR',
     from: 'USD',
     amount: 0,
-    result: 0
+    result: 0,
+    loading: false
   }, 
   computed: {
     formattedCurrencies() {
@@ -17,8 +18,8 @@ new Vue({
     calculateResult() {
       return (Number(this.amount) * this.result).toFixed(3)
     },
-    invalidData() {
-      return !this.amount || (Number(this.amount) === 0)
+    disabledButton() {
+      return !this.amount || (Number(this.amount) === 0) || this.loading
     }
   },
   methods: {
@@ -38,9 +39,10 @@ new Vue({
         })
     },
     convertCurrency() {
+      this.loading = true
       axios.get(`https://free.currencyconverterapi.com/api/v5/convert?q=${this.from}_${this.to}`)
         .then(response => {
-          console.log(response)
+          this.loading = false
           this.result = response.data.results[`${this.from}_${this.to}`].val
         })
     }

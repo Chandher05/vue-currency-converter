@@ -4,7 +4,10 @@ new Vue({
     this.getCurrencies()
   },
   data: {
-    currencies: {}
+    currencies: {},
+    to: 'EUR',
+    from: 'USD',
+    amount: 0 
   }, 
   computed: {
     formattedCurrencies() {

@@ -24,17 +24,13 @@
         <div class="col-md-6">
           <label>From</label>
           <select class="form-control">
-            <option value="Currecy">Currency</option>
-            <option value="Currecy">Currency</option>
-            <option value="Currecy">Currency</option>
+            <option value="currency.id" v-for="currency in formattedCurrencies">{{ currency.currencyName }}</option>
           </select>
         </div>
         <div class="col-md-6">
             <label>To</label>
           <select class="form-control">
-            <option value="Currecy">Currency</option>
-            <option value="Currecy">Currency</option>
-            <option value="Currecy">Currency</option>
+            <option value="currency.id" v-for="currency in formattedCurrencies">{{ currency.currencyName }}</option>
           </select>
         </div>
       </div>

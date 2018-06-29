@@ -46,5 +46,10 @@ new Vue({
           this.result = response.data.results[`${this.from}_${this.to}`].val
         })
     }
+  },
+  watch: {
+    amount() {
+      this.result = 0
+    }
   }
 })
